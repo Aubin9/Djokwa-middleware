@@ -11,38 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateTeacherDto = exports.CreateTeacherDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateTeacherDto {
-    First_Name;
-    Last_Name;
-    address;
+const base_user_validator_1 = require("./base-user.validator");
+class CreateTeacherDto extends base_user_validator_1.User {
     Hiring_Date;
     Salary;
     Specialty;
-    gender;
-    Email;
     Image;
-    Phone;
-    confirmPassword;
-    password;
 }
 exports.CreateTeacherDto = CreateTeacherDto;
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'First name must be a string.' }),
-    (0, class_validator_1.IsNotEmpty)({ message: 'First name is required.' }),
-    (0, class_validator_1.MaxLength)(50, { message: 'First name cannot exceed 50 characters.' }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "First_Name", void 0);
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'Last name must be a string.' }),
-    (0, class_validator_1.IsNotEmpty)({ message: 'Last name is required.' }),
-    (0, class_validator_1.MaxLength)(50, { message: 'Last name cannot exceed 50 characters.' }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "Last_Name", void 0);
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'Address must be a valid address.' }),
-    (0, class_validator_1.IsNotEmpty)({ message: 'Address is required.' }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "address", void 0);
 __decorate([
     (0, class_validator_1.IsDateString)({}, { message: 'Hiring date must be a valid date.' }),
     (0, class_validator_1.IsOptional)(),
@@ -59,40 +35,10 @@ __decorate([
     __metadata("design:type", String)
 ], CreateTeacherDto.prototype, "Specialty", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)({ message: 'The gender is required.' }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "gender", void 0);
-__decorate([
-    (0, class_validator_1.IsEmail)({}, { message: 'Email must be a valid email address.' }),
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "Email", void 0);
-__decorate([
     (0, class_validator_1.IsString)({ message: 'Image must be a string.' }),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateTeacherDto.prototype, "Image", void 0);
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'Phone must be a string.' }),
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "Phone", void 0);
-__decorate([
-    (0, class_validator_1.IsNotEmpty)({ message: 'The confirm password must match the password' }),
-    (0, class_validator_1.IsString)({ message: 'The confirm password must match the password' }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "confirmPassword", void 0);
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'Password must be a string' }),
-    (0, class_validator_1.IsNotEmpty)({ message: 'Password is required' }),
-    (0, class_validator_1.Length)(6, 20, {
-        message: 'Password must be between 6 and 20 characters long',
-    }),
-    (0, class_validator_1.Matches)(/^(?=.*[0-9])/, {
-        message: 'Password must contain at least one number',
-    }),
-    __metadata("design:type", String)
-], CreateTeacherDto.prototype, "password", void 0);
 class UpdateTeacherDto {
     Salary;
     Email;
